@@ -15,7 +15,8 @@ const MovieSearch = () => {
 
     const searchMovie = async() => {
       try{
-        let token = localStorage.getItem('token')
+      if(message.message){
+          let token = localStorage.getItem('token')
         if(token){
             let header = {     
         Authorization:`Bearer ${token}`
@@ -30,6 +31,9 @@ const MovieSearch = () => {
           toast.error("Login to Find Movies")
           setLoggedIn(false)
         }
+      }else{
+        toast.error("Please Enter the Fields")
+      }
     
         
         
